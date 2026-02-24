@@ -1,0 +1,65 @@
+TextWindow.WriteLine ("Simulador de caixa eletrônico")
+TextWindow.WriteLine ("Bem-Vindo user!")
+Saldo = 1000
+While Opção <> 4
+  TextWindow.WriteLine (" ")
+  TextWindow.WriteLine ("Escolha uma opção:")
+  
+  TextWindow.WriteLine (" ")
+
+  TextWindow.WriteLine ("1 - Ver saldo")
+  TextWindow.WriteLine ("2 - Depositar")
+  TextWindow.WriteLine ("3 - Sacar")
+  TextWindow.WriteLine ("4 - Sair")
+  
+  TextWindow.WriteLine (" ")
+  
+  Opção = TextWindow.Read()
+  
+  If Opção = 1 Then
+  TextWindow.WriteLine (" ")
+  TextWindow.WriteLine ("Seu saldo é: " + Saldo)
+  TextWindow.WriteLine ("4 - Sair")
+  TextWindow.WriteLine ("5 - Voltar")
+  Opção = TextWindow.Read()
+  
+  ElseIf Opção = 2 Then
+  TextWindow.WriteLine (" ")
+  TextWindow.WriteLine ("Quanto deseja depositar?")
+  Depósito = TextWindow.Read()
+  Saldo = Saldo + Depósito
+  TextWindow.WriteLine ("Seu novo saldo é: " + Saldo)
+  TextWindow.WriteLine (" ")
+  TextWindow.WriteLine ("4 - Sair")
+  TextWindow.WriteLine ("5 - Voltar")
+  Opção = TextWindow.Read()
+  
+Elseif Opção = 3 then
+  TextWindow.WriteLine (" ")
+  TextWindow.WriteLine ("Seu saldo é: " + Saldo)
+  TextWindow.WriteLine ("Quanto deseja sacar?")
+  Saque = TextWindow.Read()
+  
+  While Saque > Saldo
+    TextWindow.WriteLine ("Este valor não pode ser sacado!")
+    TextWindow.WriteLine ("Escolha outro valor")
+    Saque = TextWindow.Read()
+    EndWhile
+    
+    If Saque <= Saldo then
+    Saldo = Saldo - Saque
+  EndIf
+  
+  TextWindow.WriteLine ("Seu novo saldo é: " + Saldo)
+  TextWindow.WriteLine (" ")
+  TextWindow.WriteLine ("4 - Sair")
+  TextWindow.WriteLine ("5 - Voltar")
+  Opção = TextWindow.Read()
+  
+  EndIf
+EndWhile
+
+If Opção = 4 then
+  TextWindow.WriteLine (" ")
+  TextWindow.WriteLine ("Acesso encerrado")
+EndIf
